@@ -1,8 +1,15 @@
 var base; // Основание степени
 var exponent; // Показатель степени
 var result=1;
+var message;
 
-// Функция проверки ручного ввода
+
+/**
+ * Проверяет данные ручного ввода
+ *
+ * @param base
+ * @returns {boolean}
+ */
 function isNumeric(base) {
     return !isNaN(parseFloat(base)) && isFinite(base);
 }
@@ -20,7 +27,11 @@ while (isNumeric(exponent) != true) {
 }
 
 for (var i = 0; i < exponent; i++) {
-     result = result * base;
+     result *= base;
 }
 
 console.log('Результат: ', result);
+
+message=base+ ' в степени ' + exponent + ' равно: ' + result;
+
+alert(message);
