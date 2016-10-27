@@ -1,7 +1,7 @@
 var base; // Основание степени
 var exponent; // Показатель степени
-var result=1;
 var message;
+var result;
 
 
 /**
@@ -26,9 +26,22 @@ while (isNumeric(exponent) != true) {
     exponent = prompt('Введенное значение не является числом, повторите ввод')
 }
 
-for (var i = 0; i < exponent; i++) {
-     result *= base;
+
+/**Функция возведения в степень
+ * 
+ * @param exp
+ * @param b
+ * @returns {number}
+ */
+function pow(exp, b) {
+    var res=1;
+    for (var i = 0; i < exp; i++) {
+        res *= b;
+    }
+    return res;
 }
+
+result=pow(exponent, base);
 
 console.log('Результат: ', result);
 
