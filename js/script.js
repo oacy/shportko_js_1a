@@ -3,48 +3,32 @@ var exponent; // Показатель степени
 var message;
 var result;
 
-
-/**
- * Проверяет данные ручного ввода
- *
- * @param base
- * @returns {boolean}
- */
-function isNumeric(base) {
-    return !isNaN(parseFloat(base)) && isFinite(base);
-}
-
-base=prompt('Введите основание степени');
-
-while (isNumeric(base) != true){
-    base=prompt('Введенное значение не является числом, повторите ввод')
-}
-
-exponent = prompt('Введите показатель степени')
-
-while (isNumeric(exponent) != true) {
-    exponent = prompt('Введенное значение не является числом, повторите ввод')
-}
+base = prompt('Введите основание степени');
+exponent = prompt('Введите показатель степени');
 
 
 /**Функция возведения в степень
- * 
- * @param exp
- * @param b
- * @returns {number}
+ *
+ * @param b - Переменная, которую нужно возвести в степень
+ * @param exp - Степень
+ * @returns {number} - Аргумент b, возведенный в степень
  */
-function pow(exp, b) {
-    var res=1;
-    for (var i = 0; i < exp; i++) {
+function pow(b, exp) {
+    var res = 1;
+    for (var i = 0; i < Math.abs(exp); i++) {
         res *= b;
     }
-    return res;
+    if (exp >= 0) {
+        return res;
+    } else {
+        return 1 / res;
+    }
 }
 
-result=pow(exponent, base);
+result = pow(base, exponent);
 
 console.log('Результат: ', result);
 
-message=base+ ' в степени ' + exponent + ' равно: ' + result;
+message = base + ' в степени ' + exponent + ' равно: ' + result;
 
 alert(message);
